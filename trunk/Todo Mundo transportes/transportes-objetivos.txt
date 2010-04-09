@@ -1,0 +1,59 @@
+﻿TODOMUNDO Transportes 
+
+Objetivo 
+Construir un sistema que permita almacenar información de proveedores de transporte y de depósito, para el envío de cargas y la consulta 
+de la posición de las mismas. 
+
+Glosario 
+
+- CARGA: Determinado producto que puede ser transportado o almacenado. 
+- TRAMO: Se entiende como tramo a las diferentes formas de unir un punto de carga con un punto de descarga. 
+- RUTA: Conjunto de tramos que realiza una carga desde el punto de salida, hasta el punto de llegada. 
+- ITINERARIO: Seguimiento que se le realiza a una carga por una ruta determinada. También conocido como Hoja de Ruta.
+
+Alcance 
+El sistema va a contemplar:
+
+
+- El almacenamiento de clientes, para poder eliminarlos, modificarlos o hacer consultas de los mismos. 
+
+- El almacenamiento de los distintos proveedores de transporte y servicios de depósito de cargas para poder eliminar, modificar o realizar consultas sobre los mismos. 
+
+- El almacenamiento de las cargas, para poder eliminarlas, modificarlas o hacer consultas de las mismas.
+
+// { Esto les parece que vaya aca?
+  En la consulta se permitirá utilizar registros de cargas anteriores para nuevos envíos. 
+// }
+
+- El almacenamiento de las rutas, para poder eliminarlas, modificarlas o hacer consultas de las mismas. 
+
+- El almacenamiento de las rutas predeterminadas, para poder eliminarlas, modificarlas o hacer consultas de las mismas. 
+
+- El almacenamiento de plantillas de cargas, para poder eliminarlas, modificarlas o consultar las mismas. 
+
+- El almacenamiento de la posicion de la carga cuando pase por un punto de control, para poder consultar la misma en cada momento.
+  Entendiendo por punto de control a aduanas, peajes, cargas/descargas en depósitos/transportes. 
+  
+
+
+El sistema no va a contemplar: 
+
+- El sistema no almacenará información sobre la posición de la carga en cada instante. 
+- El sistema no se encargará de la emisión de las facturas. 
+Hipótesis 
+- Se terciarizan los traslados, almacenamiento en depósitos y logística de carga/descarga. 
+- Uno de los datos que se tendra en cuenta para cada proveedor, es si cumple los plazos determinados. 
+
+- La sobre-venta no sera tenida en cuenta por TODOMUNDO sino que corre por cuenta de los distintos proveedores de traslado.
+
+- Los proveedores de transporte y servicios de depósito con los que trabaja TODOMUNDO suministrarán la información necesaria para el sistema. 
+
+// { Esto no es redundante? 
+- Se podrá consultar a los proveedores de transporte y servicios de depósito información sobre la posición de determinada carga en cada punto de control. 
+// } 
+
+- El sistema no modificará el destino de una carga una vez en curso. Si se cancela el envío, o se modifica el itinerario, un agente de ventas deberá generar un nuevo proceso de envío para redirigir el paquete. 
+- El llevar la carga a determinado destino, dependerá del proveedor que contratemos para trasladar el pedido.
+
+- Los proveedores de transporte informarán los distintos tipos de cargas que pueden transportar en cada ruta. 
+- El cliente deja la carga en el depósito terciarizado.

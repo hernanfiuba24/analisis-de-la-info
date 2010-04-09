@@ -1,0 +1,40 @@
+﻿Tareas de la Actividad
+
+Solicitar envio
+    1) El cliente pide el envío de determinada carga.
+    2) El agente de ventas le pide los datos al cliente.
+    3) El cliente indica propiedades del paquete (peso, volumen y tipo de carga) y su prioridad de envío.
+
+Acordar ruta
+    1) El agente de ventas consulta a los proveedores por el envío de la carga según sus propiedades.
+    2) El agente de ventas extrae proveedores candidatos para realizar el envío.
+    3) En caso de ser posible el envío, el agente de ventas le informa al cliente los tiempos estimados y precios disponibles.
+
+Pagar envío
+    1) El agente de ventas le informa al cliente que debe pagar para que se realice el envío.
+    2) El cliente paga el envío.
+    3) El agente de ventas deja constancia del envío pagado.
+
+Realizar envío
+    1) Operaciones acuerda con las empresas transportistas el envío de la carga.
+    2) El cliente despacha el paquete en el almacén de origen.
+    3) El paquete recorre la ruta preestablecida.
+
+Informar estado de carga
+    1) Operaciones almacena la información del estado de cargas que están en viaje, suministrada por los proveedores de transporte y servicios de depósito en cada punto de control.
+    2) En caso de que el cliente solicite la información del estado de su carga, Operaciones informará la posición aproximada de la carga (el tiempo y lugar por el cual paso la última vez).
+
+Recibir carga
+    1) El transportista deposita la carga en el almacén de destino. 
+    2) El paquete es alojado en el almacén hasta que sea el momento de subirlo al transporte.
+    3) Se deja asentado el momento de llegada de la carga y además el del envío.
+
+Emitir factura
+    1) Oficina central pide la emision de la factura.
+    2) Oficina central envía la factura al cliente.
+    3) El cliente recibe la factura.
+
+Retirar carga
+    1) En el caso de que el cliente solicitante del envío sea habitual el receptor puede retira la carga.
+    2) En el caso de que el cliente solicitante del envío no sea habitual el receptor debe mostrar el comprobante de pago.
+    3) Se deja constancia del retiro.
