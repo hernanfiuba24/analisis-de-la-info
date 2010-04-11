@@ -1,0 +1,77 @@
+Especificacion de casos de uso: "TODOMUNDO - Transportes"
+
+Caso de uso: Mantener clientes
+
+Descripción: Provee la funcionalidad de agregar clientes al sistema, eliminarlos, modificar o consultar su información.
+Flujo de eventos:
+Precondiciones: Ninguna
+
+Flujo principal:
+INCLUDE (Validar usuario).
+Si actividad es "agregar" entonces ejecutar subflujo S1 "Agregar cliente".
+Si actividad es "eliminar" entonces se ejecuta el subflujo S2 "Eliminar cliente".
+Si actividad es "modificar" entonces se ejecuta el subflujo S3 "Modificar cliente".
+Si actividad es "consultar" entonces se ejecuta el subflujo S4 "Consultar clientes".
+Si actividad es "salir" entonces finaliza el caso de uso.
+
+Subflujo:
+Agregar cliente (S1):
+El sistema solicita los datos del cliente.
+El departamento de ventas ingresa los datos del cliente.
+El sistema valida el cliente (E1).
+El sistema agrega el cliente.
+El caso de uso comienza nuevamente.
+
+Eliminar cliente (S2):
+El sistema solicita el nombre y apellido del cliente a eliminar.
+El departamento de ventas ingresa el nombre y apellido del cliente.
+El sistema valida el cliente (E2).
+El sistema elimina el cliente.
+El caso de uso comienza nuevamente.
+
+Modificar cliente (S3):
+El sistema solicita el nombre y apellido del cliente.
+El departamento de ventas ingresa el nombre y apellido del cliente.
+El sistema valida el cliente (E2).
+El sistema muestra todos los campos del cliente editables.
+El departamento de ventas edita los campos a modificar.
+El sistema valida los datos ingresados (E3).
+El caso de uso comienza nuevamente.
+
+Consultar clientes (S4):
+El sistema solicita uno o varios datos del cliente.
+El departamento de ventas ingresa uno o varios datos de los clientes a buscar.
+El sistema valida los datos ingresados (E4).
+El sistema muestra todos los clientes cuyos campos concuerdan con los ingresados por el departamento de ventas. No se muestran clientes si los datos no concuerdan con ninguno.
+El caso de uso comienza nuevamente.
+
+Flujo de excepción:
+E1:
+Ya existe un cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+
+E2:
+No existe ningún cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+
+E3:
+Se modificó el nombre y/o apellido del cliente y ya existe uno con esos datos. El caso de uso comienza nuevamente.
+
+E4:
+El departamento de ventas no ingresó datos. El caso de uso comienza nuevamente.
+
+
+Caso de uso: Validar usuario
+
+Descripción: Provee la funcionalidad de validar el usuario que hace uso del sistema.
+
+Flujo de eventos:
+Precondiciones: Ninguna.
+
+Flujo principal: 
+Si el usuario no está registrado, el sistema solicita nombre de usuario y password.
+El usuario ingresa su nombre de usuario y password.
+El sistema valida el nombre de usuario y password (E) y queda validado el usuario.
+
+Flujo de excepción:
+E: 
+Se ingresó un nombre de usuario/password incorrecto. El usuario puede reintentar
+o bien finalizar el caso de uso.
