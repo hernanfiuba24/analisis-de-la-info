@@ -17,42 +17,38 @@ El sistema va a contemplar:
 
 - El almacenamiento de todos clientes, para poder eliminarlos, modificarlos o hacer consultas de los mismos. 
 
-- El almacenamiento de los distintos proveedores de transporte y servicios de depósito de cargas para poder eliminar, 
-  modificar o realizar consultas sobre los mismos. 
+- El almacenamiento de la información de los distintos proveedores de transporte y servicios de depósito de cargas, que
+  nos permita realizar envíos. Se podrá eliminar, modificar o realizar consultas sobre esta información. 
 
-- El almacenamiento de la informacion de las distintas cargas que nos permita realizar el envio. La misma puede ser 
-  eliminadas, modificada o ser consultada. En la consulta se permitirá realizar copias de los registros de cargas 
-  anteriores para poder reutilizarlos en los nuevos envíos. 
+- El almacenamiento de las cargas, para poder eliminarlas, modificarlas o hacer consultas de las mismas. En la consulta 
+  se permitirá realizar copias de los registros de cargas anteriores para poder reutilizarlos en los nuevos envíos. 
 
 - El almacenamiento de rutas predeterminadas (entendiendose "rutas predeterminadas" a las rutas de transporte que el
   usuario cargue en el sistema, un ejemplo de ello serian las rutas mas comunes), para poder eliminarlas, modificarlas 
   o hacer consultas de las mismas. 
 
-- El almacenamiento de plantillas de cargas, para poder eliminarlas, modificarlas o consultar las mismas. 
-
-- El almacenamiento de la posicion de la carga cuando pase por un punto de control, para poder consultar la misma en 
+- El almacenamiento de la posición de la carga cuando pase por un punto de control, para poder consultar la misma en 
   cada momento.
   Entendiendo por punto de control a aduanas, peajes, cargas/descargas en depósitos/transportes. 
   
-- El almacenamiento de los datos de la emision de una factura para su posterios consulta y/o eliminacion
+- El almacenamiento de los datos de la emisión de una factura para su posterios consulta y/o eliminación.
 
 
 El sistema no va a contemplar: 
 
 - El sistema no almacenará información sobre la posición de la carga en cada instante. 
-- El sistema no se encargará de la emisión de las facturas, pero si guardara informacion necesaria para la emision.
+- El sistema no se encargará de la emisión de las facturas, pero si guardará información necesaria para la emisión.
  
 
 HIPOTESIS
 - Se terciarizan los traslados, almacenamiento en depósitos y logística de carga/descarga. 
-- Uno de los datos que se tendra en cuenta para cada proveedor, es si cumple con los plazos determinados. 
-- La sobre-venta no sera tenida en cuenta por TODOMUNDO sino que corre por cuenta de los distintos proveedores de traslado.
+- Uno de los datos que se tendrá en cuenta para cada proveedor, es si cumple con los plazos determinados. 
+- La sobre-venta no será tenida en cuenta por TODOMUNDO sino que corre por cuenta de los distintos proveedores de traslado.
 - Los proveedores de transporte y servicios de depósito con los que trabaja TODOMUNDO suministrarán la información 
   necesaria para el sistema. 
-- El sistema no modificará el destino de una carga una vez en curso. Si se cancelar el envío, o modifica el itinerario, 
+- El sistema no modificará el destino de una carga una vez en curso. Si se cancela el envío, o modifica el itinerario, 
   se debera esperar que la carga llegue a destino, y un agente de ventas deberá generar un nuevo proceso de envío para 
-  redirigir el paquete. El costo del mismo corre a cargo del cliente
-  del cliente
+  redirigir el paquete. El costo del mismo corre a cargo del cliente del cliente.
 - El llevar la carga a determinado destino, dependerá del proveedor que contratemos para trasladar el pedido.
 - Los proveedores de transporte informarán los distintos tipos de cargas que pueden transportar en cada ruta. 
 - El cliente deja la carga en el depósito terciarizado.
