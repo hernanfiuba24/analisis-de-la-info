@@ -21,10 +21,8 @@ El sistema va a contemplar:
   modificar o realizar consultas sobre los mismos. 
 
 - El almacenamiento de la informacion de las distintas cargas que nos permita realizar el envio. La misma puede ser 
-  eliminadas, modificada o ser consultada.
-
-- En la consulta se permitirá realizar copias de los registros de cargas anteriores para poder reutilizarlos en los 
-  nuevos envíos. 
+  eliminadas, modificada o ser consultada. En la consulta se permitirá realizar copias de los registros de cargas 
+  anteriores para poder reutilizarlos en los nuevos envíos. 
 
 - El almacenamiento de rutas predeterminadas (entendiendose "rutas predeterminadas" a las rutas de transporte que el
   usuario cargue en el sistema, un ejemplo de ello serian las rutas mas comunes), para poder eliminarlas, modificarlas 
