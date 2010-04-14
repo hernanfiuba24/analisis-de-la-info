@@ -59,6 +59,59 @@ E4:
 El departamento de ventas no ingresó datos. El caso de uso comienza nuevamente.
 
 
+Caso de uso: Mantener cargas
+
+Descripción: Provee la funcionalidad de agregar cargas al sistema, eliminarlas, modificar o consultar su información.
+Flujo de eventos:
+Precondiciones: Ninguna
+
+Flujo principal:
+INCLUDE (Validar usuario).
+Si actividad es "agregar" entonces ejecutar subflujo S5 "Agregar carga".
+Si actividad es "eliminar" entonces se ejecuta el subflujo S6 "Eliminar carga".
+Si actividad es "modificar" entonces se ejecuta el subflujo S7 "Modificar carga".
+Si actividad es "consultar" entonces se ejecuta el subflujo S8 "Consultar carga".
+Si actividad es "salir" entonces finaliza el caso de uso.
+
+Subflujo:
+Agregar carga (S5):
+El departamento de ventas solicita los datos de la carga al cliente.
+El departamento de ventas ingresa los datos de la carga al sistema.
+El sistema valida la carga (E5).
+El sistema agrega la carga.
+El caso de uso comienza nuevamente.
+
+Eliminar carga (S6):
+El departamento de ventas solicita al cliente los datos de la carga a eliminar del sistema.
+El departamento de ventas busca en el sistema la carga a eliminar.
+El sistema valida la carga (E6).
+El sistema elimina la carga.
+El caso de uso comienza nuevamente.
+
+Modificar carga (S7):
+El departamento de ventas solicita al cliente los datos de la carga.
+El departamento de ventas ingresa los datos de la carga.
+El sistema valida la carga (E6).
+El sistema muestro todos los datos de la carga para editar.
+El departamento de ventas edita los datos a modificar.
+El sistema valida los datos ingresados (E5).
+El sistema actualiza los datos de la carga.
+El caso de uso comienza nuevamente.
+
+Consultar cargas (S8):
+El departamento de ventas solicita al cliente los datos de la carga.
+El departamento de ventas ingresa uno o varios datos de la carga a buscar.
+El sistema muestra todas las cargas cuyos campos concuerdan con los ingresados por el departamento de ventas. No se muestran cargas si los datos no concuerdan con ninguna.
+El caso de uso comienza nuevamente.
+
+Flujo de excepción:
+E5:
+Ya existe una carga con esos datos. El caso de uso comienza nuevamente.
+
+E6:
+No existe ninguna carga con esos datos. El caso de uso comienza nuevamente.
+
+
 Caso de uso: Validar usuario
 
 Descripción: Provee la funcionalidad de validar el usuario que hace uso del sistema.
@@ -75,3 +128,45 @@ Flujo de excepción:
 E: 
 Se ingresó un nombre de usuario/password incorrecto. El usuario puede reintentar
 o bien finalizar el caso de uso.
+
+
+Caso de uso: Pagar envio
+
+Descripción: Provee la funcionalidad de dejar constancia en el sistema que el cliente pagó el envío.
+
+Flujo de eventos:
+Precondiciones: El cliente tiene que haber pagado el envío.
+
+Flujo principal:
+El agente de ventas le solicita al cliente sus datos y lo busca en el sistema.
+El agente de ventas ingresa los datos del pago al cliente buscado.
+Finaliza el caso de uso.
+
+
+Caso de uso: Consultar estado de carga
+
+Descripción: Provee la funcionalidad de informar la fecha y lugar de las posiciones conocidas de la carga.
+
+Flujo de eventos:
+Precondiciones: Debe existir un envío asignado a esa carga.
+
+Flujo principal:
+Los proveedores de transporte y servicios de depósito informan al área de operaciones el estado de la carga en los puntos de control.
+El área de operaciones busca la carga en el sistema.
+El área de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
+El área de operaciones suministra la información del estado de la carga al cliente en caso de que éste lo solicite.
+Finaliza el caso de uso.
+
+
+Caso de uso: Emitir factura
+
+Descripción: Provee la funcionalidad de interactuar con un sistema de facturación para la emisión de la factura.
+
+Flujo de eventos:
+Precondiciones: Debe existir el envío del cual se quiere emitir la factura.
+
+Flujo principal:
+Oficina central busca en el sistema el envío del cual se quiere emitir la factura.
+El sistema envía los datos de la factura al sistema de facturación, el cual se encarga de la impresión de la misma.
+Oficina central envía la factura al cliente.
+Finaliza el caso de uso.
