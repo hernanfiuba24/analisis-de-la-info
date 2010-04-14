@@ -1,0 +1,274 @@
+Especificacion de casos de uso: "El mundo de las plantas"
+
+
+Caso de uso: Registrar venta
+
+    * Descripción: Provee la funcionalidad de agregar al sistema una venta realizada por el área de ventas y de notificar la misma al sistema de facturación y al área de almacenes
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El cliente le comunica al área de ventas los productos y/o servicios que desea adquirir.
+                + El sistema chequea si hay stock o disponibilidad del producto o servicio a adquirir (E1).
+                + El área de ventas ingresa la venta y su costo al sistema.
+                + El sistema envía estos datos a un sistema de facturacion y al área de almacenes.
+                + Finaliza el caso de uso.
+
+          o Flujo de excepción E1:
+                + No hay stock o disponibilidad del producto o servicio que solicito el cliente. Si el cliente quiere modificar la compra,
+                  entonces se ejecuta el flujo principal, si el cliente no quiere comprar finaliza el caso de uso.
+
+
+Caso de uso: Asignar servicio
+
+    * Descripción: Provee la funcionalidad de asignarle un servicio con su fecha y lugar al área de servicios.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema valida si hay servicios registrados (E2).
+                + El área de ventas asigna fecha, hora y lugar a un servicio (E3).
+                + Finaliza el caso de uso.
+
+          o Flujo de excepción E2:
+                + No hay servicios registrados. Finaliza el caso de uso.
+
+          o Flujo de excepción E3:
+                + La fecha, hora y/o lugar ya están asignados a otro servicio. El área de ventas puede reintentar o finalizar el caso de uso.
+
+
+Caso de uso: Consultar clientes
+
+    * Descripción: Provee la funcionalidad de mostrar los clientes que tienen algún servicio asignado.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema valida si hay clientes que tienen tienen algun servicio asignado (E4).
+                + El sistema le muestra al área de servicios los clientes a los que debe realizarle un trabajo, ordenados del más próximo al menos próximo.
+                + Finaliza el caso de uso.
+
+          o Flujo de excepción E4:
+                + No hay clientes con servicios asignados. Finaliza el caso de uso.
+
+
+Caso de uso: Informar que debe realizar el servicio
+
+    * Descripción: Provee la funcionalidad de informarle al área de servicios los clientes a los que debe realizarle un trabajo en la próxima semana.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema valida si clientes a los que hay que realizarles algún servicio en la próxima semana.
+                + Si no los hay, finaliza el caso de uso, si los hay se le informa al área de servicios.
+                + Finaliza el caso de uso.
+
+
+Caso de uso: Mantener clientes
+
+    * Descripción: Provee la funcionalidad de agregar clientes al sistema, eliminarlos y modificar o consultar su información.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema solicita ingresar "opción cliente".
+                + El área de ventas ingresa "opción cliente".
+                + Si "opción cliente" es "agregar" entonces se ejecuta el subflujo S1 "Agregar cliente".
+                + Si "opción cliente" es "eliminar" entonces se ejecuta el subflujo S2 "Eliminar cliente".
+                + Si "opción cliente" es "modificar" entonces se ejecuta el subflujo S3 "Modificar cliente".
+                + Si "opción cliente" es "consultar" entonces se ejecuta el subflujo S4 "Consultar clientes".
+                + Si "opción cliente" es "salir" entonces finaliza el caso de uso.
+
+          o Subflujo Agregar cliente (S1):
+                + El sistema solicita los datos del cliente.
+                + El área de ventas ingresa los datos del cliente.
+                + El sistema valida el cliente (E5).
+                + El sistema agrega el cliente.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Eliminar cliente (S2):
+                + El sistema solicita el nombre y apellido del cliente a eliminar.
+                + El área de ventas ingresa el nombre y apellido del cliente.
+                + El sistema valida el cliente (E6).
+                + El sistema elimina el cliente.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Modificar cliente (S3):
+                + El sistema solicita el nombre y apellido del cliente.
+                + El área de ventas ingresa el nombre y apellido del cliente.
+                + El sistema valida el cliente (E6).
+                + El sistema muestra todos los campos del cliente editables.
+                + El área de ventas edita los campos a modificar.
+                + El sistema valida los datos ingresados (E7).
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Consultar clientes (S4):
+                + El sistema solicita uno o varios datos del cliente.
+                + El área de ventas ingresa uno o varios datos de los clientes a buscar.
+                + El sistema valida los datos ingresados (E8).
+                + El sistema muestra todos los clientes cuyos campos concuerdan con los ingresados por el área de ventas. No se muestran clientes si los datos no concuerdan con ninguno.
+                + El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E5:
+                + Ya existe un cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E6:
+                + No existe ningún cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E7:
+                + Se modificó el nombre y/o apellido del cliente y ya existe uno con esos datos. El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E8:
+                + El área de ventas no ingresó datos. El caso de uso comienza nuevamente.
+
+
+Caso de uso: Mantener productos
+
+    * Descripción: Provee la funcionalidad de agregar productos al sistema, eliminarlos y modificar o consultar su información y/o stock.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema solicita ingresar "opción producto".
+                + El área de ventas ingresa "opción producto".
+                + Si "opción producto" es "agregar" entonces se ejecuta el subflujo S5 "Agregar producto".
+                + Si "opción producto" es "eliminar" entonces se ejecuta el subflujo S6 "Eliminar producto".
+                + Si "opción producto" es "modificar" entonces se ejecuta el subflujo S7 "Modificar producto".
+                + Si "opción producto" es "consultar" entonces se ejecuta el subflujo S8 "Consultar productos".
+                + Si "opción producto" es "salir" entonces finaliza el caso de uso.
+
+          o Subflujo Agregar producto (S5):
+                + El sistema solicita los datos del producto.
+                + El área de ventas ingresa los datos del producto.
+                + El sistema valida el producto (E9).
+                + El sistema agrega el producto.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Eliminar producto (S6):
+                + El sistema solicita el nombre del producto a eliminar
+                + El área de ventas ingresa el nombre del producto.
+                + El sistema valida el producto (E10).
+                + El sistema elimina el producto.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Modificar producto (S7):
+                + El sistema solicita el nombre del producto.
+                + El área de ventas ingresa el nombre del producto.
+                + El sistema valida el producto (E10).
+                + El sistema muestra todos los campos del producto editables.
+                + El área de ventas edita los campos a modificar.
+                + El sistema valida los datos ingresados (E9).
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Consultar producto (S8):
+                + El sistema solicita el nombre del producto.
+                + El área de ventas ingresa el nombre del producto a buscar.
+                + El sistema valida el producto (E10).
+                + El sistema muestra el producto y todos sus datos. No se muestra el producto si el nombre ingresado no concuerda.
+                + El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E9:
+                + Ya existe un producto con ese nombre. El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E10:
+                + No existe ningún producto con ese nombre. El caso de uso comienza nuevamente.
+
+
+
+Caso de uso: Mantener servicios
+
+    * Descripción: Provee la funcionalidad de agregar servicios al sistema, eliminarlos y modificar o consultar su información.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema solicita ingresar "opción servicio".
+                + El área de ventas ingresa "opción servicio".
+                + Si "opción servicio" es "agregar" entonces se ejecuta el subflujo S9 "Agregar servicio".
+                + Si "opción servicio" es "eliminar" entonces se ejecuta el subflujo S10 "Eliminar servicio".
+                + Si "opción servicio" es "modificar" entonces se ejecuta el subflujo S11 "Modificar servicio".
+                + Si "opción servicio" es "consultar" entonces se ejecuta el subflujo S12 "Consultar servicio".
+                + Si "opción servicio" es "salir" entonces finaliza el caso de uso.
+
+          o Subflujo Agregar servicio (S9):
+                + El sistema solicita los datos del servicio.
+                + El área de ventas ingresa los datos del servicio.
+                + El sistema valida el servicio (E11).
+                + El sistema agrega el servicio.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Eliminar servicio (S10):
+                + El sistema solicita la fecha y hora del servicio a eliminar.
+                + El área de ventas ingresa la fecha y hora del servicio.
+                + El sistema valida el servicio (E12).
+                + El sistema elimina el servicio.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Modificar servicio (S11):
+                + El sistema solicita la fecha y hora del servicio.
+                + El área de ventas ingresa la fecha y hora del servicio.
+                + El sistema valida el servicio (E12).
+                + El sistema muestra todos los campos del servicio editables.
+                + El área de ventas edita los campos a modificar.
+                + El sistema valida los datos ingresados (E11).
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Consultar servicio (S12):
+                + El sistema solicita la fecha y hora del servicio.
+                + El área de ventas ingresa la fecha y hora del servicio a buscar.
+                + El sistema valida el servicio (E12).
+                + El sistema muestra el servicio y todos sus datos. No se muestra el servicio si la fecha y hora ingresada no concuerda.
+                + El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E11:
+                + Ya existe un servicio con esa fecha y hora. El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E12:
+                + No existe ningún servicio a realizar en esa fecha y hora. El caso de uso comienza nuevamente.
+
+
+
+Caso de uso: Mantener pagos
+
+    * Descripción: Provee la funcionalidad de registrar pagos y asignarlos a las ventas de productos y/o servicios.
+    * Flujo de eventos:
+          o Precondiciones: Ninguna
+
+          o Flujo principal:
+                + El sistema solicita ingresar "opción pago".
+                + El área de ventas ingresa "opción pago".
+                + Si "opción pago" es "registrar" entonces se ejecuta el subflujo S13 "Registrar pago".
+                + Si "opción pago" es "eliminar" entonces se ejecuta el subflujo S14 "Eliminar pago".
+                + Si "opción pago" es "consultar" entonces se ejecuta el subflujo S15 "Consultar pago".
+                + Si "opción pago" es "salir" entonces finaliza el caso de uso.
+
+          o Subflujo Registrar pago (S13):
+                + El sistema solicita los datos de la venta.
+                + El área de ventas ingresa los datos de la venta.
+                + El sistema valida la venta (E13).
+                + El sistema solicita los datos del pago.
+                + El área de ventas ingresa los datos del pago.
+                + El sistema asigna el pago a la venta seleccionada.
+                + El caso de uso comienza nuevamente.
+
+          o Subflujo Eliminar pago (S14):
+                + El sistema solicita los datos de la venta.
+                + El área de ventas ingresa los datos de la venta.
+                + El sistema valida la venta (E13).
+                + El sistema muestra el/los pago/s asignados a esa venta.
+                + El área de ventas selecciona el pago a eliminar.
+                + El sistema elimina el pago.
+                + El caso de uso comienza nuevamente.
+                +
+
+          o Subflujo Consultar pago (S15):
+                + El sistema solicita los datos de la venta.
+                + El área de ventas ingresa los datos de la venta.
+                + El sistema valida la venta (E13).
+                + El sistema muestra el/los pago/s asignados a esa venta.
+                + El caso de uso comienza nuevamente.
+
+          o Flujo de excepción E13:
+                + No existe la venta. El caso de uso comienza nuevamente.
+
+
