@@ -92,7 +92,7 @@ Modificar carga (S7):
 El departamento de ventas solicita al cliente los datos de la carga.
 El departamento de ventas ingresa los datos de la carga.
 El sistema valida la carga (E6).
-El sistema muestro todos los datos de la carga para editar.
+El sistema muestra todos los datos de la carga para editar.
 El departamento de ventas edita los datos a modificar.
 El sistema valida los datos ingresados (E5).
 El sistema actualiza los datos de la carga.
@@ -110,6 +110,67 @@ Ya existe una carga con esos datos. El caso de uso comienza nuevamente.
 
 E6:
 No existe ninguna carga con esos datos. El caso de uso comienza nuevamente.
+
+
+Caso de uso: Mantener Posiciones de Cargas
+
+Descripción: Provee la funcionalidad de agregar posiciones de cargas al sistema, eliminarlas, modificar o consultar las mismas.
+Flujo de eventos:
+Precondiciones: Ninguna
+
+Flujo principal:
+INCLUDE (Validar usuario).
+Si actividad es "agregar" entonces ejecutar subflujo S5 "Agregar posición de carga".
+Si actividad es "eliminar" entonces se ejecuta el subflujo S6 "Eliminar posición de carga".
+Si actividad es "modificar" entonces se ejecuta el subflujo S7 "Modificar posición de carga".
+Si actividad es "consultar" entonces se ejecuta el subflujo S8 "Consultar posiciones de carga".
+Si actividad es "salir" entonces finaliza el caso de uso.
+
+Subflujo:
+Agregar posición de carga (S9):
+El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
+El departamento de operaciones busca dicha carga en el sistema.
+El sistema valida la carga (E6).
+El departamento de operaciones solicita la posición de la carga al proveedor de transportes y servicio de depósitos y la ingresa al sistema.
+El sistema agrega la posición a la carga.
+El caso de uso comienza nuevamente.
+
+Eliminar posición de carga (S10):
+El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
+El departamento de operaciones busca dicha carga en el sistema.
+El sistema valida la carga (E6).
+El departamento de operaciones solicita la posición de la carga a eliminar.
+El departamento de operaciones busca dicha posicion de la carga en el sistema.
+El sistema valida la posición de la carga (E7).
+El sistema elimina la posición de la carga.
+El caso de uso comienza nuevamente.
+
+Modificar posición de carga (S11):
+El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
+El departamento de operaciones busca dicha carga en el sistema.
+El sistema valida la carga (E6).
+El departamento de operaciones solicita la posición de la carga al proveedor de transportes y servicio de depósitos y la ingresa al sistema.
+El sistema valida la posición de la carga (E7).
+El sistema muestra todos los datos de la posición para editar.
+El departamento de operaciones edita los datos a modificar.
+El sistema valida los datos ingresados (E8).
+El sistema actualiza los datos de la posición de la carga.
+El caso de uso comienza nuevamente.
+
+Consultar posiciones de carga (S12):
+El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
+El departamento de operaciones busca dicha carga en el sistema.
+El sistema valida la carga (E6).
+El departamento de operaciones ingresa uno o varios datos de la posición de la carga a buscar.
+El sistema muestra todas las posiciones de cargas cuyos campos concuerdan con los ingresados por el departamento de operaciones. No se muestran las posiciones de cargas si los datos no concuerdan con ninguna.
+El caso de uso comienza nuevamente.
+
+Flujo de excepción:
+E7:
+No existe esa posición de la carga. El caso de uso comienza nuevamente.
+
+E8:
+Ya existe esa posición de la carga. El caso de uso comienza nuevamente.
 
 
 Caso de uso: Validar usuario
@@ -151,10 +212,10 @@ Flujo de eventos:
 Precondiciones: Debe existir un envío asignado a esa carga.
 
 Flujo principal:
-Los proveedores de transporte y servicios de depósito informan al área de operaciones el estado de la carga en los puntos de control.
-El área de operaciones busca la carga en el sistema.
-El área de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
-El área de operaciones suministra la información del estado de la carga al cliente en caso de que éste lo solicite.
+Los proveedores de transporte y servicios de depósito informan al departamento de operaciones el estado de la carga en los puntos de control.
+El departamento de operaciones busca la carga en el sistema.
+El departamento de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
+El departamento de operaciones suministra la información del estado de la carga al cliente en caso de que éste lo solicite.
 Finaliza el caso de uso.
 
 
