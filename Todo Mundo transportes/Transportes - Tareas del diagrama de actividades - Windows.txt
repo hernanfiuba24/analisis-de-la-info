@@ -18,7 +18,9 @@ Pagar envío
 Realizar envío
     1) Operaciones acuerda con las empresas transportistas el envío de la carga.
     2) El cliente despacha el paquete en el almacén de origen.
-    3) El paquete recorre la ruta preestablecida.
+    3) El transportista recoge la carga en el almacen de origen e informa de este evento a Operaciones.
+    4) El transportista transporta la carga informando de los distintos pasos por aduana a Operaciones.
+    5) Si el envio lo realizan varios tranportistas se ultilizan almacenes intermedios y el uso de los mismo es informado por los transportistas a Operaciones.
 
 Informar estado de carga
     1) Operaciones almacena la información del estado de cargas que están en viaje, suministrada por los proveedores de transporte y servicios de depósito en cada punto de control.
