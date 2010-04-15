@@ -8,7 +8,7 @@ Caso de uso: Registrar venta
           o Precondiciones: Ninguna
 
           o Flujo principal:
-                + El cliente le comunica al área de ventas los productos y/o servicios que desea adquirir.
+                + El cliente le comunica al área de ventas los productos y/o servicios que desea adquirir .
                 + El sistema chequea si hay stock o disponibilidad del producto o servicio a adquirir (E1).
                 + El área de ventas ingresa la venta y su costo al sistema.
                 + El sistema envía estos datos a un sistema de facturacion y al área de almacenes.
@@ -17,6 +17,7 @@ Caso de uso: Registrar venta
           o Flujo de excepción E1:
                 + No hay stock o disponibilidad del producto o servicio que solicito el cliente. Si el cliente quiere modificar la compra,
                   entonces se ejecuta el flujo principal, si el cliente no quiere comprar finaliza el caso de uso.
+
 
 
 Caso de uso: Asignar servicio
@@ -272,3 +273,41 @@ Caso de uso: Mantener pagos
                 + No existe la venta. El caso de uso comienza nuevamente.
 
 
+
+Caso de uso: Extraer Servicio
+
+    * Descripción: Provee la funcionalidad de asentar la extraccion de productos del almacen
+    * Flujo de eventos:
+          o Precondiciones: Haber realizado la venta
+
+          o Flujo principal:
+                + El area de Almacen extrae de uno o mas productos del almacen para satisfacer un pedido(E1).
+                + Se asienta en el sistema la baja del/los producto/s.
+                + Si el cliente solicita el envio a domicilio, se lo envia.
+                + Finaliza el caso de uso.
+
+          o Flujo de excepción E1:
+                + No hay stock del/los productos. Finaliza el caso de uso
+	
+	  o Post Condicion:
+		+ Se asienta en el sistema la extraccion de productos del almacen
+	
+
+Caso de uso: Realizar Servicio
+
+    * Descripción: Provee la funcionalidad de asentar la realizacion del servicio y productos utilizado
+
+    * Flujo de eventos:
+          o Precondiciones: Que el cliente haya pedido un servicio y este pendiente
+
+          o Flujo principal:
+                + El area de Servicio va al lugar pedido por el cliente y le realiza el servicio(E1).
+                + El area de Servicio ingresa en el sistema los productos utilizados que utilizo.
+                + El cliente firma el Comprobante de que se realizo el Servicio.
+                + Finaliza el caso de uso.
+
+          o Flujo de excepción E1:
+                + No se puede ingresar al lugar donde se debe realizar el servicio. Finaliza el caso de uso
+	
+	  o Post Condicion:
+		+ Se asienta en el sistema la realizacion del servicio y los productos utilizados
