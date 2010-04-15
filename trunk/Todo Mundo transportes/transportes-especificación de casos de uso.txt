@@ -190,6 +190,23 @@ E:
 Se ingresó un nombre de usuario/password incorrecto. El usuario puede reintentar
 o bien finalizar el caso de uso.
 
+Caso de uso: Solicitar envío
+
+Descripción: Provee la funcionalidad del ingreso
+
+Flujo de eventos:
+Precondiciones: Ninguna.
+
+Flujo principal:
+El sistema solicita los datos del cliente sistema.
+El agente de ventas ingresa los datos del cliente (E2).
+Si el cliente no existe en nuestro sistema entonces ejecutar subflujo S1 "Agregar cliente".
+El sistema pregunta si es un cliente habitual.
+El agente de ventas ingresa si el cliente es habitual o no.
+El sistema solicita los datos del paquete.
+El agente de ventas ingresa los datos del paquete.
+Finaliza el caso de uso.
+
 
 Caso de uso: Pagar envio
 
