@@ -1,0 +1,55 @@
+Tareas de la Actividad
+
+
+Solicitar envio
+
+    1) El cliente pide el envío del paquete.
+    2) Se piden los datos al cliente.
+    2) Indica propiedades del paquete (peso, volumen y tipo de carga) y su prioridad de envío.
+
+
+Acordar ruta
+
+    1) El agente de venta analiza las posibilidades de envio.
+    2) En caso de ser posible el envío, le informa al cliente los tiempos estimados y precios disponibles.
+    
+
+Pagar envío
+
+    1) El cliente paga el envío.
+    2) Se corrobora el pago.
+
+
+Realizar envío
+
+    1) Operaciones acuerda con las empresas transportistas el envío de la carga.
+    2) El cliente despacha el paquete en el almacén de origen.
+    3) El paquete recorre la ruta preestablecida.
+
+
+Informar estado de carga
+
+    1) El cliente solicitara la informacion del estado de su carga.
+    2) Operaciones informara la posicion aproximada de la carga (el tiempo y lugar por el cual paso la ultima vez que la empresa transportista haya brindado la información de que paso por un punto de control)
+
+
+Recibir carga
+
+    1) El transportista deposita la carga en el almacén destino.
+    2) El paquete es alojado en el almacén hasta que sea el momento de subirlo al transporte.
+    3) Se deja asentado el momento de llegada de la carga y ademas el del envío.
+
+        
+Emitir factura
+
+    1) Se pide la emision de la factura.
+    2) Se envia la factura al cliente.
+    3) El cliente recibe la factura.
+
+   
+Retirar carga
+
+    1) El receptor retira la carga.
+    2) Se deja constancia del retiro.
+
+
