@@ -1,13 +1,73 @@
 Especificacion de casos de uso: "TODOMUNDO - Transportes"
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Solicitar Envío
 
-Caso de uso: Mantener clientes
+Descripción: Este caso de uso provee la funcionalidad del ingreso de una solicitud de envío de una carga.
+Actores participantes: Cliente.
+Pre-condiciones: Ninguna.
+
+Flujo de eventos:
+
+Flujo principal:
+El sistema solicita los datos del cliente sistema.
+El agente de ventas ingresa los datos del cliente (E2).
+Si el cliente no existe en nuestro sistema entonces ejectuar caso de uso Mantener Cliente.
+El sistema pregunta si es un cliente habitual.
+El agente de ventas ingresa si el cliente es habitual o no.
+El sistema solicita los datos del paquete.
+El agente de ventas ingresa los datos del paquete.
+Finaliza el caso de uso.
+
+Post-condiciones: El cliente dejó su información y la de su carga ingresada en el sistema para el envío.
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Pagar Envío
+
+Descripción: Describe la funcionalidad de dejar constancia en el sistema que el cliente pagó el envío.
+Actores participantes: Cliente.
+Pre-condiciones: El cliente tiene que haber pagado el envío.
+
+Flujo de eventos:
+
+Flujo principal:
+El agente de ventas le solicita al cliente sus datos y lo busca en el sistema.
+El agente de ventas ingresa los datos del pago al cliente buscado.
+Finaliza el caso de uso.
+
+Post-condiciones: Se deja registrado en el sistema el pago del envío por parte del cliente.
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Consultar Posición de Carga
+
+Descripción: Provee la funcionalidad de informar la fecha y lugar de las posiciones conocidas de la carga.
+Actores participantes: Cliente.
+Pre-condiciones: Debe existir un envío relacionado a esa carga.
+
+Flujo de eventos:
+
+Flujo principal:
+Los proveedores de transporte y servicios de depósito informan al departamento de operaciones el estado de la carga en los puntos de control.
+El departamento de operaciones busca la carga en el sistema.
+El departamento de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
+El departamento de operaciones suministra la información del estado de la carga al cliente en caso de que éste lo solicite.
+Finaliza el caso de uso.
+
+Post-condiciones: El cliente conoce la fecha y lugar de la posición de la carga.
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Mantener Clientes
 
 Descripción: Provee la funcionalidad de agregar clientes al sistema, eliminarlos, modificar o consultar su información.
+Actores participantes: Departamento de Ventas.
+Pre-condiciones: De eliminar, modificar o consultar la información de un cliente, el mismo debe existir en el sistema.
+
 Flujo de eventos:
-Precondiciones: Ninguna
 
 Flujo principal:
 INCLUDE (Validar usuario).
+El departamento de ventas solicita acción de Mantener Cliente.
+El sistema muestra actividades a seleccionar.
+El departamento de ventas selecciona actividad:
 Si actividad es "agregar" entonces ejecutar subflujo S1 "Agregar cliente".
 Si actividad es "eliminar" entonces se ejecuta el subflujo S2 "Eliminar cliente".
 Si actividad es "modificar" entonces se ejecuta el subflujo S3 "Modificar cliente".
@@ -20,14 +80,18 @@ El sistema solicita los datos del cliente.
 El departamento de ventas ingresa los datos del cliente.
 El sistema valida el cliente (E1).
 El sistema agrega el cliente.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir agregando clientes.
+Si el departamento de ventas quiere seguir agregando comienza nuevamente el subflujo S1.
+Si el departamento de ventas no quiere seguir agregando finaliza el caso de uso.
 
 Eliminar cliente (S2):
 El sistema solicita el nombre y apellido del cliente a eliminar.
 El departamento de ventas ingresa el nombre y apellido del cliente.
 El sistema valida el cliente (E2).
 El sistema elimina el cliente.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir eliminando clientes.
+Si el departamento de ventas quiere seguir eliminando comienza nuevamente el subflujo S2.
+Si el departamento de ventas no quiere seguir eliminando finaliza el caso de uso.
 
 Modificar cliente (S3):
 El sistema solicita el nombre y apellido del cliente.
@@ -36,149 +100,245 @@ El sistema valida el cliente (E2).
 El sistema muestra todos los campos del cliente editables.
 El departamento de ventas edita los campos a modificar.
 El sistema valida los datos ingresados (E3).
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir modificando clientes.
+Si el departamento de ventas quiere seguir modificando comienza nuevamente el subflujo S3.
+Si el departamento de ventas no quiere seguir modificando finaliza el caso de uso.
 
 Consultar clientes (S4):
 El sistema solicita uno o varios datos del cliente.
 El departamento de ventas ingresa uno o varios datos de los clientes a buscar.
 El sistema valida los datos ingresados (E4).
 El sistema muestra todos los clientes cuyos campos concuerdan con los ingresados por el departamento de ventas. No se muestran clientes si los datos no concuerdan con ninguno.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir consultando información de clientes.
+Si el departamento de ventas quiere seguir consultando información comienza nuevamente el subflujo S4.
+Si el departamento de ventas no quiere seguir consultando información finaliza el caso de uso.
 
 Flujo de excepción:
 E1:
-Ya existe un cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+Ya existe un cliente con ese nombre y apellido. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
 E2:
-No existe ningún cliente con ese nombre y apellido. El caso de uso comienza nuevamente.
+No existe ningún cliente con ese nombre y apellido. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
 E3:
-Se modificó el nombre y/o apellido del cliente y ya existe uno con esos datos. El caso de uso comienza nuevamente.
+Se modificó el nombre y/o apellido del cliente y ya existe uno con esos datos. Se opta por corregir los datos o revertir y finalizar el caso de uso.
 
 E4:
 El departamento de ventas no ingresó datos. El caso de uso comienza nuevamente.
 
+Post-condiciones: Cambio la situación de algún cliente en el sistema.
 
-Caso de uso: Mantener cargas
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Mantener Cargas
 
 Descripción: Provee la funcionalidad de agregar cargas al sistema, eliminarlas, modificar o consultar su información.
+Actores Participantes: Departamento de Ventas.
+Pre-condiciones: De eliminar, modificar o consultar la información de una carga, la misma debe existir en el sistema.
+
 Flujo de eventos:
-Precondiciones: Ninguna
 
 Flujo principal:
 INCLUDE (Validar usuario).
-Si actividad es "agregar" entonces ejecutar subflujo S5 "Agregar carga".
-Si actividad es "eliminar" entonces se ejecuta el subflujo S6 "Eliminar carga".
-Si actividad es "modificar" entonces se ejecuta el subflujo S7 "Modificar carga".
-Si actividad es "consultar" entonces se ejecuta el subflujo S8 "Consultar carga".
+El departamento de ventas solicita acción de Mantener Cargas.
+El sistema muestra actividades a seleccionar.
+El departamento de ventas selecciona actividad:
+Si actividad es "agregar" entonces ejecutar subflujo S1 "Agregar carga".
+Si actividad es "eliminar" entonces se ejecuta el subflujo S2 "Eliminar carga".
+Si actividad es "modificar" entonces se ejecuta el subflujo S3 "Modificar carga".
+Si actividad es "consultar" entonces se ejecuta el subflujo S4 "Consultar carga".
 Si actividad es "salir" entonces finaliza el caso de uso.
 
 Subflujo:
-Agregar carga (S5):
+Agregar carga (S1):
 El departamento de ventas solicita los datos de la carga al cliente.
 El departamento de ventas ingresa los datos de la carga al sistema.
-El sistema valida la carga (E5).
+El sistema valida la carga (E1).
 El sistema agrega la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir agregando cargas.
+Si el departamento de ventas quiere seguir agregando comienza nuevamente el subflujo S1.
+Si el departamento de ventas no quiere seguir agregando finaliza el caso de uso.
 
-Eliminar carga (S6):
+Eliminar carga (S2):
 El departamento de ventas solicita al cliente los datos de la carga a eliminar del sistema.
 El departamento de ventas busca en el sistema la carga a eliminar.
-El sistema valida la carga (E6).
+El sistema valida la carga (E2).
 El sistema elimina la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir elminando cargas.
+Si el departamento de ventas quiere seguir elminando comienza nuevamente el subflujo S2.
+Si el departamento de ventas no quiere seguir elminando finaliza el caso de uso.
 
-Modificar carga (S7):
+Modificar carga (S3):
 El departamento de ventas solicita al cliente los datos de la carga.
 El departamento de ventas ingresa los datos de la carga.
-El sistema valida la carga (E6).
+El sistema valida la carga (E2).
 El sistema muestra todos los datos de la carga para editar.
 El departamento de ventas edita los datos a modificar.
-El sistema valida los datos ingresados (E5).
+El sistema valida los datos ingresados (E1).
 El sistema actualiza los datos de la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir modificando cargas.
+Si el departamento de ventas quiere seguir modificando comienza nuevamente el subflujo S3.
+Si el departamento de ventas no quiere seguir modificando finaliza el caso de uso.
 
-Consultar cargas (S8):
+Consultar cargas (S4):
 El departamento de ventas solicita al cliente los datos de la carga.
 El departamento de ventas ingresa uno o varios datos de la carga a buscar.
 El sistema muestra todas las cargas cuyos campos concuerdan con los ingresados por el departamento de ventas. No se muestran cargas si los datos no concuerdan con ninguna.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir consultando información de cargas.
+Si el departamento de ventas quiere seguir consultando comienza nuevamente el subflujo S4.
+Si el departamento de ventas no quiere seguir consultando finaliza el caso de uso.
 
 Flujo de excepción:
-E5:
-Ya existe una carga con esos datos. El caso de uso comienza nuevamente.
+E1:
+Ya existe una carga con esos datos. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
-E6:
-No existe ninguna carga con esos datos. El caso de uso comienza nuevamente.
+E2:
+No existe ninguna carga con esos datos. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
+Post-condiciones: Cambio la situación de alguna carga en el sistema.
 
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Acordar Ruta
+Descripción: 
+Actores Participantes: 
+Pre-condiciones: 
+
+Flujo de eventos:
+Flujo principal:
+Subflujo:
+Flujo de excepción:
+
+Post-condiciones:
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Mantener Rutas Predeterminadas
+Descripción: 
+Actores Participantes: 
+Pre-condiciones: 
+
+Flujo de eventos:
+Flujo principal:
+Subflujo:
+Flujo de excepción:
+
+Post-condiciones:
+
+-------------------------------------------------------------------------------------------------------
 Caso de uso: Mantener Posiciones de Cargas
 
 Descripción: Provee la funcionalidad de agregar posiciones de cargas al sistema, eliminarlas, modificar o consultar las mismas.
+Actores Participantes: Departamento de Operaciones.
+Pre-condiciones: De eliminar, modificar o consultar la información de la posición de una carga, debe exisitr un envío asociado a la misma en el sistema.
+
 Flujo de eventos:
-Precondiciones: Ninguna
 
 Flujo principal:
 INCLUDE (Validar usuario).
-Si actividad es "agregar" entonces ejecutar subflujo S5 "Agregar posición de carga".
-Si actividad es "eliminar" entonces se ejecuta el subflujo S6 "Eliminar posición de carga".
-Si actividad es "modificar" entonces se ejecuta el subflujo S7 "Modificar posición de carga".
-Si actividad es "consultar" entonces se ejecuta el subflujo S8 "Consultar posiciones de carga".
+El departamento de operaciones solicita acción de Mantener Posiciones de Cargas.
+El sistema muestra actividades a seleccionar.
+El departamento de operaciones selecciona actividad:
+Si actividad es "agregar" entonces ejecutar subflujo S1 "Agregar posición de carga".
+Si actividad es "eliminar" entonces se ejecuta el subflujo S2 "Eliminar posición de carga".
+Si actividad es "modificar" entonces se ejecuta el subflujo S3 "Modificar posición de carga".
+Si actividad es "consultar" entonces se ejecuta el subflujo S4 "Consultar posiciones de carga".
 Si actividad es "salir" entonces finaliza el caso de uso.
 
 Subflujo:
-Agregar posición de carga (S9):
+Agregar posición de carga (S1):
 El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
 El departamento de operaciones busca dicha carga en el sistema.
-El sistema valida la carga (E6).
+El sistema valida la carga (E1).
 El departamento de operaciones solicita la posición de la carga al proveedor de transportes y servicio de depósitos y la ingresa al sistema.
 El sistema agrega la posición a la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir agregando posiciones de cargas.
+Si el departamento de operaciones quiere seguir agregando comienza nuevamente el subflujo S1.
+Si el departamento de operaciones no quiere seguir agregando finaliza el caso de uso.
 
-Eliminar posición de carga (S10):
+Eliminar posición de carga (S2):
 El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
 El departamento de operaciones busca dicha carga en el sistema.
-El sistema valida la carga (E6).
+El sistema valida la carga (E1).
 El departamento de operaciones solicita la posición de la carga a eliminar.
 El departamento de operaciones busca dicha posicion de la carga en el sistema.
-El sistema valida la posición de la carga (E7).
+El sistema valida la posición de la carga (E2).
 El sistema elimina la posición de la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir eliminando posiciones de cargas.
+Si el departamento de operaciones quiere seguir eliminando comienza nuevamente el subflujo S2.
+Si el departamento de operaciones no quiere seguir eliminando finaliza el caso de uso.
 
-Modificar posición de carga (S11):
+Modificar posición de carga (S3):
 El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
 El departamento de operaciones busca dicha carga en el sistema.
-El sistema valida la carga (E6).
+El sistema valida la carga (E1).
 El departamento de operaciones solicita la posición de la carga al proveedor de transportes y servicio de depósitos y la ingresa al sistema.
-El sistema valida la posición de la carga (E7).
+El sistema valida la posición de la carga (E2).
 El sistema muestra todos los datos de la posición para editar.
 El departamento de operaciones edita los datos a modificar.
-El sistema valida los datos ingresados (E8).
+El sistema valida los datos ingresados (E3).
 El sistema actualiza los datos de la posición de la carga.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir modificando posiciones de cargas.
+Si el departamento de operaciones quiere seguir modificando comienza nuevamente el subflujo S3.
+Si el departamento de operaciones no quiere seguir modificando finaliza el caso de uso.
 
-Consultar posiciones de carga (S12):
+Consultar posiciones de carga (S4):
 El departamento de operaciones solicita los datos de la carga al proveedor de transportes y servicio de depósitos.
 El departamento de operaciones busca dicha carga en el sistema.
-El sistema valida la carga (E6).
+El sistema valida la carga (E1).
 El departamento de operaciones ingresa uno o varios datos de la posición de la carga a buscar.
 El sistema muestra todas las posiciones de cargas cuyos campos concuerdan con los ingresados por el departamento de operaciones. No se muestran las posiciones de cargas si los datos no concuerdan con ninguna.
-El caso de uso comienza nuevamente.
+El sistema solicita si se desea seguir consultando información de posiciones de cargas.
+Si el departamento de operaciones quiere seguir consultando comienza nuevamente el subflujo S4.
+Si el departamento de operaciones no quiere seguir consultando finaliza el caso de uso.
 
 Flujo de excepción:
-E7:
-No existe esa posición de la carga. El caso de uso comienza nuevamente.
+E1:
+No existe ninguna carga con esos datos. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
-E8:
-Ya existe esa posición de la carga. El caso de uso comienza nuevamente.
+E2:
+No existe esa posición de la carga. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
+E3:
+Ya existe esa posición de la carga. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
-Caso de uso: Validar usuario
+Post-condiciones: Cambió la situación de alguna posición de una carga en el sistema.
 
-Descripción: Provee la funcionalidad de validar el usuario que hace uso del sistema.
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Realizar Envío
+Descripción: 
+Actores Participantes: 
+Pre-condiciones: 
 
 Flujo de eventos:
-Precondiciones: Ninguna.
+Flujo principal:
+Subflujo:
+Flujo de excepción:
+
+Post-condiciones:
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Emitir factura
+
+Descripción: Provee la funcionalidad de interactuar con un sistema de facturación para la emisión de la factura.
+Actores Participantes: Oficina Central (Primario), Sistema de Facturación (Secundario).
+Pre-condiciones: Debe existir el envío del cual se quiere emitir la factura.
+
+Flujo de eventos:
+
+Flujo principal:
+Oficina central busca en el sistema el envío del cual se quiere emitir la factura.
+El sistema envía los datos de la factura al sistema de facturación, el cual se encarga de la impresión de la misma.
+Oficina central envía la factura al cliente.
+Finaliza el caso de uso.
+
+Post-condiciones: Factura emitida y enviada al cliente.
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Validar usuario
+
+Descripción: Este caso de uso es incluido por otros. Describe el proceso de validación de un usuario que hace uso del sistema.
+Actores participantes: Usuario del sistema (puede pertencer a Departamento de Ventas, Departamento de Operaciones ó Oficina Central)
+Pre-condiciones: Ninguna.
+
+Flujo de eventos:
 
 Flujo principal: 
 Si el usuario no está registrado, el sistema solicita nombre de usuario y password.
@@ -190,61 +350,4 @@ E:
 Se ingresó un nombre de usuario/password incorrecto. El usuario puede reintentar
 o bien finalizar el caso de uso.
 
-Caso de uso: Solicitar envío
-
-Descripción: Provee la funcionalidad del ingreso
-
-Flujo de eventos:
-Precondiciones: Ninguna.
-
-Flujo principal:
-El sistema solicita los datos del cliente sistema.
-El agente de ventas ingresa los datos del cliente (E2).
-Si el cliente no existe en nuestro sistema entonces ejecutar subflujo S1 "Agregar cliente".
-El sistema pregunta si es un cliente habitual.
-El agente de ventas ingresa si el cliente es habitual o no.
-El sistema solicita los datos del paquete.
-El agente de ventas ingresa los datos del paquete.
-Finaliza el caso de uso.
-
-
-Caso de uso: Pagar envio
-
-Descripción: Provee la funcionalidad de dejar constancia en el sistema que el cliente pagó el envío.
-
-Flujo de eventos:
-Precondiciones: El cliente tiene que haber pagado el envío.
-
-Flujo principal:
-El agente de ventas le solicita al cliente sus datos y lo busca en el sistema.
-El agente de ventas ingresa los datos del pago al cliente buscado.
-Finaliza el caso de uso.
-
-
-Caso de uso: Consultar estado de carga
-
-Descripción: Provee la funcionalidad de informar la fecha y lugar de las posiciones conocidas de la carga.
-
-Flujo de eventos:
-Precondiciones: Debe existir un envío asignado a esa carga.
-
-Flujo principal:
-Los proveedores de transporte y servicios de depósito informan al departamento de operaciones el estado de la carga en los puntos de control.
-El departamento de operaciones busca la carga en el sistema.
-El departamento de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
-El departamento de operaciones suministra la información del estado de la carga al cliente en caso de que éste lo solicite.
-Finaliza el caso de uso.
-
-
-Caso de uso: Emitir factura
-
-Descripción: Provee la funcionalidad de interactuar con un sistema de facturación para la emisión de la factura.
-
-Flujo de eventos:
-Precondiciones: Debe existir el envío del cual se quiere emitir la factura.
-
-Flujo principal:
-Oficina central busca en el sistema el envío del cual se quiere emitir la factura.
-El sistema envía los datos de la factura al sistema de facturación, el cual se encarga de la impresión de la misma.
-Oficina central envía la factura al cliente.
-Finaliza el caso de uso.
+Pre-condiciones: Usuario validado para que haga uso del sistema.
