@@ -19,6 +19,33 @@ El agente de ventas ingresa los datos del paquete.
 Finaliza el caso de uso.
 
 Post-condiciones: El cliente dejó su información y la de su carga ingresada en el sistema para el envío.
+		------------------
+			Version Diego
+Caso de uso: Solicitar Envío
+
+Descripción: Este caso de uso provee la funcionalidad del ingreso de una solicitud de envío de una carga.
+Actores participantes: Cliente.
+Pre-condiciones: El cliente este ingresado en el Sistema.
+
+Flujo de eventos:
+
+Flujo principal:
+El cliente le solicita el envio al vendedor.
+El sistema solicita los datos del paquete.
+El agente de ventas ingresa los datos del paquete.
+El sistema da las opciones de envio para el paquete (E1).
+El Cliente elige una opcion (E2).
+El Vendedor ingresa al sistema el envio que eligio el Cliente.
+Finaliza el caso de uso.
+
+Flujo de excepción:
+E1:
+No hay una forma de envio posible. Finaliza el caso de uso.
+
+E2:
+Al cliente no le satisface ninguna opcion. Finaliza el caso de uso.
+
+Post-condiciones: El cliente elige la forma de envio del paquete y esta es asentada en el sistema.
 
 -------------------------------------------------------------------------------------------------------
 Caso de uso: Pagar Envío
@@ -46,6 +73,7 @@ Pre-condiciones: Debe existir un envío relacionado a esa carga.
 Flujo de eventos:
 
 Flujo principal:
+El Cliente solicita saber la posicion del envio.
 Los proveedores de transporte y servicios de depósito informan al departamento de operaciones el estado de la carga en los puntos de control.
 El departamento de operaciones busca la carga en el sistema.
 El departamento de operaciones actualiza la información de la carga en el sistema de acuerdo a lo suministrado por los proveedores de transporte y servicios de depósito.
@@ -304,15 +332,27 @@ Post-condiciones: Cambió la situación de alguna posición de una carga en el sist
 -------------------------------------------------------------------------------------------------------
 Caso de uso: Realizar Envío
 Descripción: 
-Actores Participantes: 
+Actores Participantes: Dto de Operaciones
 Pre-condiciones: 
-
+	Que se haya acordado un envio con el cliente por una carga. Que el cliente haya despachado el paquete en el almacen
 Flujo de eventos:
 Flujo principal:
-Subflujo:
+
+    Operaciones acuerda con las empresas transportistas que intervendran para el envío de la carga.
+    El transportista recoge la carga en el almacen de origen e informa de este evento a Operaciones (E1).
+    El transportista transporta la carga informando de los distintos pasos por aduana a Operaciones.
+    Si el envio lo realizan varios tranportistas se ultilizan almacenes intermedios y el uso de los mismo es informado por los transportistas a Operaciones.
+    El transportista deja la carga en el almacen destino.
+
+
 Flujo de excepción:
+E1:
+No se encontro la carga. Finaliza el caso de uso.
+
 
 Post-condiciones:
+	Es actualizada la ubicacion del paquete hasta su llegada a destino.
+
 
 -------------------------------------------------------------------------------------------------------
 Caso de uso: Emitir factura
