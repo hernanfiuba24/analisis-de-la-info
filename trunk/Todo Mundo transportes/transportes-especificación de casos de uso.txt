@@ -30,11 +30,8 @@ Pre-condiciones: El cliente este ingresado en el Sistema.
 Flujo de eventos:
 
 Flujo principal:
-El cliente le solicita el envio al vendedor.
-El sistema solicita los datos del paquete.
-El agente de ventas ingresa los datos del paquete.
-El sistema da las opciones de envio para el paquete (E1).
-El Cliente elige una opcion (E2).
+INCLUDE(Consultar Precio de Envío) (E1).
+El Cliente elige una opcion de envío (E2).
 El Vendedor ingresa al sistema el envio que eligio el Cliente.
 Finaliza el caso de uso.
 
@@ -81,6 +78,28 @@ El departamento de operaciones suministra la información del estado de la carga 
 Finaliza el caso de uso.
 
 Post-condiciones: El cliente conoce la fecha y lugar de la posición de la carga.
+
+-------------------------------------------------------------------------------------------------------
+Caso de uso: Consultar Precio de Envío
+
+Descripción: Provee la funcionalidad de consultar precios de envíos.
+Actores participantes: Cliente.
+Pre-condiciones: Ninguna.
+
+Flujo de eventos:
+
+Flujo principal:
+El Cliente solicita el costo del envío para una carga.
+El sistema solicita los datos de la carga.
+El agente de ventas ingresa los datos del paquete.
+El sistema da las opciones de envio para el paquete (E1).
+Finaliza el caso de uso.
+
+Flujo de excepción:
+E1:
+No hay una forma de envio posible. Finaliza el caso de uso.
+
+Post-condiciones: El cliente conoce las opciones de envíos con sus precios.
 
 -------------------------------------------------------------------------------------------------------
 Caso de uso: Mantener Clientes
