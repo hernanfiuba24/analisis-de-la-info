@@ -4,27 +4,6 @@ Caso de uso: Solicitar Envío
 
 Descripción: Este caso de uso provee la funcionalidad del ingreso de una solicitud de envío de una carga.
 Actores participantes: Cliente.
-Pre-condiciones: Ninguna.
-
-Flujo de eventos:
-
-Flujo principal:
-El sistema solicita los datos del cliente sistema.
-El agente de ventas ingresa los datos del cliente (E2).
-Si el cliente no existe en nuestro sistema entonces ejectuar caso de uso Mantener Cliente.
-El sistema pregunta si es un cliente habitual.
-El agente de ventas ingresa si el cliente es habitual o no.
-El sistema solicita los datos del paquete.
-El agente de ventas ingresa los datos del paquete.
-Finaliza el caso de uso.
-
-Post-condiciones: El cliente dejó su información y la de su carga ingresada en el sistema para el envío.
-		------------------
-			Version Diego
-Caso de uso: Solicitar Envío
-
-Descripción: Este caso de uso provee la funcionalidad del ingreso de una solicitud de envío de una carga.
-Actores participantes: Cliente.
 Pre-condiciones: El cliente este ingresado en el Sistema.
 
 Flujo de eventos:
@@ -33,6 +12,9 @@ Flujo principal:
 INCLUDE(Consultar Precio de Envío) (E1).
 El Cliente elige una opcion de envío (E2).
 El Vendedor ingresa al sistema el envio que eligio el Cliente.
+El sistema pregunta si es un cliente habitual.
+El agente de ventas ingresa si el cliente es habitual o no.
+INCLUDE(Mantener Clientes).
 Finaliza el caso de uso.
 
 Flujo de excepción:
@@ -242,19 +224,6 @@ E2:
 No existe ninguna carga con esos datos. Se opta por comenzar nuevamente o finalizar el caso de uso.
 
 Post-condiciones: Cambio la situación de alguna carga en el sistema.
-
--------------------------------------------------------------------------------------------------------
-Caso de uso: Acordar Ruta
-Descripción: 
-Actores Participantes: 
-Pre-condiciones: 
-
-Flujo de eventos:
-Flujo principal:
-Subflujo:
-Flujo de excepción:
-
-Post-condiciones:
 
 -------------------------------------------------------------------------------------------------------
 Caso de uso: Mantener Rutas Predeterminadas

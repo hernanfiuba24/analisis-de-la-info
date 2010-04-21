@@ -1,14 +1,13 @@
 ﻿Tareas de la Actividad
 
 Solicitar envio
-    1) El cliente pide el envío de determinada carga.
-    2) El agente de ventas le pide los datos al cliente.
+    1) El cliente pide consulta el envío de determinada carga.
+    2) El agente de ventas le pide los datos de la carga al cliente.
     3) El cliente indica propiedades del paquete (peso, volumen y tipo de carga) y su prioridad de envío.
-
-Acordar ruta
-    1) El agente de ventas consulta a los proveedores por el envío de la carga según sus propiedades.
-    2) El agente de ventas extrae proveedores candidatos para realizar el envío.
-    3) En caso de ser posible el envío, el agente de ventas le informa al cliente los tiempos estimados y precios disponibles.
+    4) El agente de ventas consulta a los proveedores por el envío de la carga según sus propiedades.
+    5) El agente de ventas extrae proveedores candidatos para realizar el envío.
+    6) En caso de ser posible el envío, el agente de ventas le informa al cliente los tiempos estimados y precios disponibles.
+    7) Si el Cliente se decide por una opcion de envío, entonces se registran sus datos y se da de alta el envío.
 
 Pagar envío
     1) El agente de ventas le informa al cliente que debe pagar para que se realice el envío.
