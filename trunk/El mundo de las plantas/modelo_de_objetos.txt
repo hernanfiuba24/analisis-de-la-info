@@ -1,0 +1,86 @@
+Clases de entidad participantes
+
+*Clase: Cliente
+
+-Atributos:
+ NyA
+ Domicilio
+ Fecha de Pago
+ Deuda
+
+-Metodos:
+ IngresarNuevoCliente()
+ ModificarDatosCliente()
+ EliminarCliente()
+
+-Responsabilidades:
+ Permitir conocer el estado de deuda de cada cliente.
+
+
+*Clase: Pedido
+
+-Atributos:
+ FechaDeCompra
+ PrecioTotal
+ MedioDePago
+ CantidadProductos
+ CantidadServicios
+ 
+-Metodos:
+ IngresarPedido()
+ ModificarPedido()
+ CancelarPedido()   
+ 
+-Respnsabilidades:
+ Permite conocer las compras del cliente y modificarlas.
+
+
+*Clase: Producto
+
+-Atributos:
+ NombrePoducto
+ TipoProducto
+ Descripcion
+ StockDisponible
+ ImporteUnitario
+  
+-Metodos:
+ IngresarProducto()
+ ModificarProducto()
+ EliminarProduto()
+ ModificarStock()
+ ModificarPrecio()
+ 
+-Responsabilidades:
+ Permite conocer las descripciones de los distintos productos
+ Permite consultar el stock de los distintos productos del local, y el importe de cada uno de de ellos.
+
+*Clase: Servicio
+
+-Atributos:
+ NombreServicio
+ Descripcion
+ PrecioServicio
+ Encargado
+ 
+
+-Metodos:
+ AgregarServicio()
+ EliminarServicio()
+ ModificarServicio() 
+
+-Responsabilidades:
+ Permitir agregar un servicio a un cliente, darlo de baja y modificar su estado
+
+
+Clase: Cliente-Servicio (Clase de Asociacion)
+-Atributos:
+ Dia 
+ Horario
+ Periodicidad
+ FechaInicio
+ FechaFin
+
+-Metodos
+-Responsabilidad:
+ Almacena informacion de la realizacion de un servicio para un determinado cliente
