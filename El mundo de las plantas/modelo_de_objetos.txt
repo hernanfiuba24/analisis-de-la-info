@@ -41,27 +41,22 @@ Clases de entidad participantes
  NombrePoducto
  TipoProducto
  Descripcion
- StockDisponible
- ImporteUnitario
   
 -Metodos:
  IngresarProducto()
  ModificarProducto()
  EliminarProduto()
- ModificarStock()
- ModificarPrecio()
  
 -Responsabilidades:
  Permite conocer las descripciones de los distintos productos
- Permite consultar el stock de los distintos productos del local, y el importe de cada uno de de ellos.
+ 
 
 *Clase: Servicio
 
 -Atributos:
  NombreServicio
  Descripcion
- PrecioServicio
- Encargado
+ TipoServicio
  
 
 -Metodos:
@@ -70,16 +65,40 @@ Clases de entidad participantes
  ModificarServicio() 
 
 -Responsabilidades:
- Permitir agregar un servicio a un cliente, darlo de baja y modificar su estado
+ Permitir conocer los distintos servicios con que cuenta "El mundo de las plantas"
 
 
-Clase: Cliente-Servicio (Clase de Asociacion)
+*Clase: Deposito
+
+-Atributos
+ NombreProducto
+ StockDisponible
+ ImporteUnitario
+
+-Metodos:
+-Responsabilidades:
+
+
+*Clase: AreaServicios
+
 -Atributos:
+ NombreServicio
+ PrecioServicio
+ HorariosDisponibles
+ EncargadosDisponiblesPorHorario
+
+-Metodos:
+-Responsabilidades:
+
+ 
+Clase: Cliente-AreaServicio (Clase de Asociacion)
+ -Atributos:
  Dia 
  Horario
  Periodicidad
  FechaInicio
  FechaFin
+ Encargado
 
 -Metodos
 -Responsabilidad:
