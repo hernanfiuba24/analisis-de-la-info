@@ -9,9 +9,8 @@ Clases de entidad participantes
  Deuda
 
 -Metodos:
- IngresarNuevoCliente()
- ModificarDatosCliente()
- EliminarCliente()
+ ConsultarDeuda()
+ PagarDeuda()
 
 -Responsabilidades:
  Permitir conocer el estado de deuda de cada cliente.
@@ -30,7 +29,7 @@ Clases de entidad participantes
  IngresarPedido()
  ModificarPedido()
  CancelarPedido()   
- 
+ etc.. 
 -Respnsabilidades:
  Permite conocer las compras del cliente y modificarlas.
 
@@ -39,60 +38,42 @@ Clases de entidad participantes
 
 -Atributos:
  NombrePoducto
- TipoProducto
- Descripcion
+ Precio
+ Stock
+ 
   
 -Metodos:
  IngresarProducto()
  ModificarProducto()
  EliminarProduto()
- 
+ ConsultarStock()
+ etc..
+
 -Responsabilidades:
- Permite conocer las descripciones de los distintos productos
+ Permite conocer los precios y stock de los productos
  
 
 *Clase: Servicio
 
 -Atributos:
  NombreServicio
- Descripcion
- TipoServicio
- 
+ Precio
+ HorariosDisponibles
+ EncargadosDisponiblesPorHorario 
 
 -Metodos:
  AgregarServicio()
  EliminarServicio()
  ModificarServicio() 
+ ConsultarPrecio()
 
 -Responsabilidades:
  Permitir conocer los distintos servicios con que cuenta "El mundo de las plantas"
 
-
-*Clase: Deposito
-
--Atributos
- NombreProducto
- StockDisponible
- ImporteUnitario
-
--Metodos:
--Responsabilidades:
-
-
-*Clase: AreaServicios
-
--Atributos:
- NombreServicio
- PrecioServicio
- HorariosDisponibles
- EncargadosDisponiblesPorHorario
-
--Metodos:
--Responsabilidades:
-
  
-Clase: Cliente-AreaServicio (Clase de Asociacion)
+Clase: RealizacionServicios
  -Atributos:
+ NombreServicio
  Dia 
  Horario
  Periodicidad
@@ -101,5 +82,8 @@ Clase: Cliente-AreaServicio (Clase de Asociacion)
  Encargado
 
 -Metodos
+ ConsultarDia()
+ etc..
+
 -Responsabilidad:
  Almacena informacion de la realizacion de un servicio para un determinado cliente
