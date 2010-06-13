@@ -1,16 +1,31 @@
 //Diagrama de adolfo
 
+
+Cancelar Pasaje
+
+El cliente informa que desea cancelar un pasaje.
+EL agente de ventas da de baja la venta.
+El agente de ventas pone el pasaje de nuevo a la venta. 
+
+
+Realizar reintegro
+
+EL agente de ventas calcula el porcentaje que se le puede llegar a reintegrar al cliente por la cancelacion del viaje.
+Se le notifica al cliente el reintegro que se le va a hacer, dependiendo la fecha de cancelacion.
+
+
 Consultar Viajes
 
 El cliente consulta por distintos los viajes que realiza la empresa y por las promociones disponibles.
 El agente de ventas le informa todos los viajes que realiza la empresa,las promociones existentes y las fechas disponibles.
 El cliente selecciona un viaje de entre todos los viajes que el agente de ventas le ofrece.
 
-Reservar pasajes
+
+Reservar pasaje
 
 El agente de ventas le informa las habitaciones disponibles del crucero que va a realizar dicho viaje.
-El cliente elije la cantidad de pasajes que va a comprar, y en que tipo de habitaciones.
-El agente reserva los pasajes uy las habitaciones al cliente
+El cliente elije la habitacion para realizar el viaje.
+El agente reserva el pasaje y la habitacion asociada al cliente
 
 
 Tomar datos
@@ -20,15 +35,33 @@ EL cliente le da los datos personales al agente de venta.
 El agente de ventas guarda los datos del cliente
 
 
-Abonar reservas
+Registrar Pago
 
-El cliente solicita reservar los pasajes adquiridos.
-El agente de ventas le informa el total que debe abonar el cliente para efectivizar la reserva todos los pasajes.
-El cliente paga las reservas.
-El agente de ventas registra que las reservas de los pasajes.
+El cliente solicita pagar el pasaje adquirido.
+El agente de ventas le informa el total que debe abonar para pagar el pasaje.
+El cliente paga el pasaje.
+El agente de ventas registra el pago
 
 
-Realizar reintegro
-El cliente decide cancelar la compra de un viaje
-EL agente de ventas calcula el porcentaje que se le puede llegar a reintegrar al cliente por la cancelacion del viaje
-EL agente de ventas da de baja la venta y pone los pasajes y habitaciones disponible para la venta . 
+Realizar viaje
+
+El area de operaciones informa que el viaje ha sido realizado.
+El area de operaciones informa los consumos adicionales que ha solicitado el cliente.
+
+
+Registrar pago de servicios
+
+El agente de ventas informa al cliente los servicios adicionales que el cliente a solicitado
+El cliente abona los servicios adicionales.
+El agente de ventas registra el pago de los mismos
+
+
+
+Llenar encuesta
+
+El cliente llena la encuesta sobre el viaje.
+El agente de ventas recibe la encuesta completada por el cliente.
+
+
+
+
