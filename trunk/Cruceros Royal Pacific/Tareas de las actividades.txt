@@ -1,0 +1,34 @@
+//Diagrama de adolfo
+
+Consultar Viajes
+
+El cliente consulta por distintos los viajes que realiza la empresa y por las promociones disponibles.
+El agente de ventas le informa todos los viajes que realiza la empresa,las promociones existentes y las fechas disponibles.
+El cliente selecciona un viaje de entre todos los viajes que el agente de ventas le ofrece.
+
+Reservar pasajes
+
+El agente de ventas le informa las habitaciones disponibles del crucero que va a realizar dicho viaje.
+El cliente elije la cantidad de pasajes que va a comprar, y en que tipo de habitaciones.
+El agente reserva los pasajes uy las habitaciones al cliente
+
+
+Tomar datos
+
+El agente de ventas le solicita los datos personales. 
+EL cliente le da los datos personales al agente de venta.
+El agente de ventas guarda los datos del cliente
+
+
+Abonar reservas
+
+El cliente solicita reservar los pasajes adquiridos.
+El agente de ventas le informa el total que debe abonar el cliente para efectivizar la reserva todos los pasajes.
+El cliente paga las reservas.
+El agente de ventas registra que las reservas de los pasajes.
+
+
+Realizar reintegro
+El cliente decide cancelar la compra de un viaje
+EL agente de ventas calcula el porcentaje que se le puede llegar a reintegrar al cliente por la cancelacion del viaje
+EL agente de ventas da de baja la venta y pone los pasajes y habitaciones disponible para la venta . 
